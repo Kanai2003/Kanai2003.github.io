@@ -26,7 +26,7 @@ export default function Hero() {
           {/* <p className={styles.summary}>{resumeData.summary}</p> */}
 
           <div className={styles.actions}>
-            <a href="/My_Resume.pdf" download className={styles.primaryBtn}>
+            <a href="/Kanai_Resume.pdf" download className={styles.primaryBtn}>
               <FaDownload /> Download Resume
             </a>
             <a href="#experience" className={styles.secondaryBtn}>
