@@ -3,7 +3,7 @@
 import styles from "./Hero.module.css";
 import { resumeData } from "@/data/resume";
 import { motion } from "framer-motion";
-import { FaDownload } from "react-icons/fa";
+import { FaDownload, FaBriefcase } from "react-icons/fa";
 
 export default function Hero() {
   return (
@@ -26,15 +26,11 @@ export default function Hero() {
           {/* <p className={styles.summary}>{resumeData.summary}</p> */}
 
           <div className={styles.actions}>
-            <a
-              href="/Resume_for_JEngineer.pdf"
-              download
-              className={styles.primaryBtn}
-            >
+            <a href="/My_Resume.pdf" download className={styles.primaryBtn}>
               <FaDownload /> Download Resume
             </a>
-            <a href="#projects" className={styles.secondaryBtn}>
-              View Projects
+            <a href="#experience" className={styles.secondaryBtn}>
+              <FaBriefcase /> View Experience
             </a>
           </div>
         </motion.div>
