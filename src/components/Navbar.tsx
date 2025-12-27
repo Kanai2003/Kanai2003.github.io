@@ -2,6 +2,7 @@ import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { resumeData } from "@/data/resume";
+import { SiLeetcode } from "react-icons/si";
 
 export default function Navbar() {
   return (
@@ -9,7 +10,8 @@ export default function Navbar() {
       <div className={styles.container}>
         <div className={styles.logo}>
           <Link href="/">
-            Kanai<span className={styles.highlight}>.dev</span>
+            Kanai
+            <span className={styles.highlight}>.Engineer</span>
           </Link>
         </div>
         <div className={styles.links}>
@@ -34,6 +36,14 @@ export default function Navbar() {
             aria-label="LinkedIn"
           >
             <FaLinkedin size={20} />
+          </a>
+          <a
+            href={resumeData.leetcode}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Leetcode"
+          >
+            <SiLeetcode size={20} />
           </a>
         </div>
       </div>

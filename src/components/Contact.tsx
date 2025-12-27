@@ -4,6 +4,7 @@ import styles from "./Contact.module.css";
 import { resumeData } from "@/data/resume";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaPhone, FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 export default function Contact() {
   return (
@@ -48,6 +49,14 @@ export default function Contact() {
             className={styles.socialLink}
           >
             <FaLinkedin />
+          </a>
+          <a
+            href={resumeData.leetcode}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            <SiLeetcode />
           </a>
         </div>
 
