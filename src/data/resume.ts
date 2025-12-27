@@ -2,6 +2,7 @@ export const resumeData = {
   name: "Kanailal Manna",
   title: "Software Development Engineer",
   email: "kanailalmanna2003@gmail.com",
+  // phone: "",
   github: "https://github.com/kanai2003",
   linkedin: "https://linkedin.com/in/kanailalmanna/",
   summary:

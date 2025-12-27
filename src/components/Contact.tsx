@@ -26,10 +26,10 @@ export default function Contact() {
             <FaEnvelope className={styles.icon} />
             <span>{resumeData.email}</span>
           </a>
-          <a href={`tel:${resumeData.phone}`} className={styles.method}>
+          {/* <a href={`tel:${resumeData.phone}`} className={styles.method}>
             <FaPhone className={styles.icon} />
             <span>{resumeData.phone}</span>
-          </a>
+          </a> */}
         </div>
 
         <div className={styles.socials}>
