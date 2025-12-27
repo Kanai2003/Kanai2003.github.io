@@ -1,0 +1,68 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background: rgba(5, 5, 10, 0.7); /* Translucent dark background */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.highlight {
+  color: var(--primary);
+}
+
+.links {
+  display: flex;
+  gap: 2rem;
+}
+
+.links a {
+  font-weight: 500;
+  color: var(--foreground);
+  opacity: 0.8;
+  position: relative;
+}
+
+.links a:hover {
+  opacity: 1;
+  color: var(--primary);
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.socials a:hover {
+  color: var(--primary);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
+@media (max-width: 768px) {
+  .links {
+    display: none; /* Mobile menu implementation TODO */
+  }
+}
