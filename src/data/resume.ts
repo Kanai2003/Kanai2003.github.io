@@ -29,6 +29,7 @@ export const resumeData = {
       "CSS",
       "HTML",
       "MUI",
+      "React Flow",
     ],
     Backend: [
       "RESTful APIs",
@@ -57,6 +58,9 @@ export const resumeData = {
       "Scikit-learn",
       "FastAPI",
       "Streamlit",
+      "Prompt Engineering",
+      "LangChain",
+      "LangGraph",
     ],
   },
   experience: [

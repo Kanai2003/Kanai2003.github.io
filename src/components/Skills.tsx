@@ -20,6 +20,7 @@ import {
 import { FaCircleDot } from "react-icons/fa6";
 import { FcScatterPlot } from "react-icons/fc";
 import { GrServices } from "react-icons/gr";
+import { PiFlowArrow } from "react-icons/pi";
 import {
   SiTypescript,
   SiRust,
@@ -41,8 +42,9 @@ import {
   SiStreamlit,
   SiFoodpanda,
   SiGooglecloud,
+  SiLangchain,
 } from "react-icons/si";
-import { TbHexagonLetterC, TbSql } from "react-icons/tb";
+import { TbHexagonLetterC, TbPrompt, TbSql } from "react-icons/tb";
 
 const iconMap: { [key: string]: React.ElementType } = {
   Java: FaJava,
@@ -82,6 +84,10 @@ const iconMap: { [key: string]: React.ElementType } = {
   Seaborn: FcScatterPlot,
   GCP: SiGooglecloud,
   AWS: FaAws,
+  "React Flow": PiFlowArrow,
+  LangChain: SiLangchain,
+  LangGraph: SiLangchain,
+  "Prompt Engineering": TbPrompt,
 };
 
 export default function Skills() {
