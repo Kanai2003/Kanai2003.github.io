@@ -17,9 +17,9 @@ export default function Contact() {
       >
         <h2 className={styles.heading}>Get in Touch</h2>
         <p className={styles.text}>
-          Looking for a passionate Software Development Engineer? <br />
-          Whether you have a question or just want to say hi, I&apos;ll try my
-          best to get back to you!
+          Got a vision? I&apos;ve got the stack. <br />
+          Whether it&apos;s building scalable platforms or just geeking out over
+          tech, I&apos;m always up for a chat!
         </p>
 
         <div className={styles.contactMethods}>
@@ -27,10 +27,6 @@ export default function Contact() {
             <FaEnvelope className={styles.icon} />
             <span>{resumeData.email}</span>
           </a>
-          {/* <a href={`tel:${resumeData.phone}`} className={styles.method}>
-            <FaPhone className={styles.icon} />
-            <span>{resumeData.phone}</span>
-          </a> */}
         </div>
 
         <div className={styles.socials}>

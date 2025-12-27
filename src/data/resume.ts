@@ -46,6 +46,8 @@ export const resumeData = {
       "GitHub Actions",
       "Git",
       "Linux (Shell Scripting)",
+      "GCP",
+      "AWS",
     ],
     "AI & ML": [
       "Pandas",

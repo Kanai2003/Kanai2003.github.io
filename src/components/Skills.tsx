@@ -15,6 +15,7 @@ import {
   FaServer,
   FaHtml5,
   FaCss3,
+  FaAws,
 } from "react-icons/fa";
 import { FaCircleDot } from "react-icons/fa6";
 import { FcScatterPlot } from "react-icons/fc";
@@ -39,6 +40,7 @@ import {
   SiScikitlearn,
   SiStreamlit,
   SiFoodpanda,
+  SiGooglecloud,
 } from "react-icons/si";
 import { TbHexagonLetterC, TbSql } from "react-icons/tb";
 
@@ -78,6 +80,8 @@ const iconMap: { [key: string]: React.ElementType } = {
   Streamlit: SiStreamlit,
   Matplotlib: FcScatterPlot,
   Seaborn: FcScatterPlot,
+  GCP: SiGooglecloud,
+  AWS: FaAws,
 };
 
 export default function Skills() {
