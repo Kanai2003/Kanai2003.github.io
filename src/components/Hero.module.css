@@ -158,6 +158,18 @@
   animation: float 10s infinite reverse;
 }
 
+.heroImage {
+  position: relative;
+  z-index: 2;
+  object-fit: contain;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%; /* Constrain max height to match strict dimensions if needed, or rely on width */
+  filter: drop-shadow(
+    0 0 20px rgba(99, 102, 241, 0.3)
+  ); /* Add a subtle glow/shadow to make it pop */
+}
+
 .bgGlow {
   position: absolute;
   top: -10%;

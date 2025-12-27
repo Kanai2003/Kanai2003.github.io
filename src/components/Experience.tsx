@@ -38,7 +38,7 @@ export default function Experience() {
                 </h4>
                 <ul className={styles.description}>
                   {exp.description.map((desc, i) => (
-                    <li key={i}>{desc}</li>
+                    <li key={i} dangerouslySetInnerHTML={{ __html: desc }} />
                   ))}
                 </ul>
               </div>

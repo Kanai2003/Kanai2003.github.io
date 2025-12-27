@@ -23,7 +23,7 @@ export default function About() {
               <span className={styles.statLabel}>Years Coding</span>
             </div>
             <div className={styles.statItem}>
-              <span className={styles.statNumber}>10+</span>
+              <span className={styles.statNumber}>15+</span>
               <span className={styles.statLabel}>Projects</span>
             </div>
             <div className={styles.statItem}>
