@@ -19,16 +19,6 @@ export const resumeData = {
       "C",
       "Rust",
     ],
-    Backend: [
-      "RESTful APIs",
-      "FastAPI",
-      "Node.js",
-      "Express.js",
-      "Microservices",
-      "PostgreSQL",
-      "SQL",
-      "MongoDB",
-    ],
     Frontend: [
       "Next.js",
       "React",
@@ -39,6 +29,16 @@ export const resumeData = {
       "CSS",
       "HTML",
       "MUI",
+    ],
+    Backend: [
+      "RESTful APIs",
+      "FastAPI",
+      "Node.js",
+      "Express.js",
+      "Microservices",
+      "PostgreSQL",
+      "SQL",
+      "MongoDB",
     ],
     DevOps: [
       "Docker",
@@ -59,7 +59,7 @@ export const resumeData = {
   },
   experience: [
     {
-      company: "Ploutos AI Technologies Pvt. Ltd.",
+      company: "Plouts AI Technologies Pvt. Ltd",
       role: "Software Development Engineer I",
       date: "Apr 2025 – Present",
       location: "Bengaluru",

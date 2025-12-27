@@ -12,7 +12,13 @@ import {
   FaReact,
   FaNodeJs,
   FaExternalLinkAlt,
+  FaServer,
+  FaHtml5,
+  FaCss3,
 } from "react-icons/fa";
+import { FaCircleDot } from "react-icons/fa6";
+import { FcScatterPlot } from "react-icons/fc";
+import { GrServices } from "react-icons/gr";
 import {
   SiTypescript,
   SiRust,
@@ -23,23 +29,34 @@ import {
   SiTailwindcss,
   SiGithubactions,
   SiJavascript,
+  SiGnubash,
+  SiExpress,
+  SiRedux,
+  SiMui,
+  SiRecoil,
+  SiPandas,
+  SiNumpy,
+  SiScikitlearn,
+  SiStreamlit,
+  SiFoodpanda,
 } from "react-icons/si";
-import { TbSql } from "react-icons/tb";
+import { TbHexagonLetterC, TbSql } from "react-icons/tb";
 
 const iconMap: { [key: string]: React.ElementType } = {
   Java: FaJava,
   Python: FaPython,
   TypeScript: SiTypescript,
   SQL: TbSql,
-  Bash: FaLinux, // Using Linux for Bash/Shell
+  Bash: SiGnubash,
   Rust: SiRust,
-  "RESTful APIs": FaNodeJs, // Generic backend icon
+  "RESTful APIs": FaServer,
   FastAPI: SiFastapi,
   PostgreSQL: SiPostgresql,
   MongoDB: SiMongodb,
   "Node.js": FaNodeJs,
-  Microservices: FaDocker, // Generic containerization/microservice
+  Microservices: GrServices,
   Docker: FaDocker,
+  "Docker Compose": FaDocker,
   "GitHub Actions": SiGithubactions,
   Git: FaGitAlt,
   "Linux (Shell Scripting)": FaLinux,
@@ -47,6 +64,20 @@ const iconMap: { [key: string]: React.ElementType } = {
   React: FaReact,
   "Tailwind CSS": SiTailwindcss,
   JavaScript: SiJavascript,
+  C: TbHexagonLetterC,
+  "Express.js": SiExpress,
+  Redux: SiRedux,
+  Zustand: FaCircleDot,
+  HTML: FaHtml5,
+  CSS: FaCss3,
+  MUI: SiMui,
+  Recoil: SiRecoil,
+  Pandas: SiPandas,
+  NumPy: SiNumpy,
+  "Scikit-learn": SiScikitlearn,
+  Streamlit: SiStreamlit,
+  Matplotlib: FcScatterPlot,
+  Seaborn: FcScatterPlot,
 };
 
 export default function Skills() {
