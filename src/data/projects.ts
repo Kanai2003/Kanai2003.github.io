@@ -63,6 +63,21 @@ export const projectsData: Record<string, ProjectDetails> = {
         url: "https://youtu.be/N6RANalyynI",
         caption: "Lynx API Demo",
       },
+      {
+        type: "image",
+        url: "/projects/lynxapi-req-res.png",
+        caption: "Lynx API Request/Response Dashboard",
+      },
+      {
+        type: "image",
+        url: "/projects/lynxapi-flow.png",
+        caption: "Lynx API Flow Management",
+      },
+      {
+        type: "image",
+        url: "/projects/lynxapi-settings.png",
+        caption: "Lynx API Settings",
+      },
     ],
   },
   "codebase-tracker": {
