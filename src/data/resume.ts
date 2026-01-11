@@ -126,6 +126,23 @@ export const resumeData = {
         "A data analytics engine using Python to parse and analyze large volumes of unstructured chat logs and visualize trends.",
     },
   ],
+  certificates: [
+    {
+      name: "AWS Academy Graduate - Cloud Foundations",
+      issuer: "Amazon Web Services Training and Certification",
+      link: "https://www.credly.com/badges/18957abc-52a5-4b14-936e-3fa7f1272584",
+    },
+    {
+      name: "Machine Learning and Deep Learning in Python",
+      issuer: "Udemy",
+      link: "https://udemy.com/certificate/UC-060771e8-0c75-4641-b57c-cb3544a90c59",
+    },
+    {
+      name: "Build Real World AI Applications with Gemini and Imagen",
+      issuer: "Google Cloud",
+      link: "https://www.credly.com/badges/dda98f9e-c896-46f2-abad-d1a301dbea1d",
+    },
+  ],
   education: {
     degree: "B. Tech in Computer Science & Engineering",
     school: "Techno International New Town",
