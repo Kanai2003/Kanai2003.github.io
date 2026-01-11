@@ -84,7 +84,7 @@ export const projectsData: Record<string, ProjectDetails> = {
     id: "codebase-tracker",
     title: "Codebase Tracker",
     shortDescription:
-      "A CLI tool for static code analysis that uses file system parsing to map function calls and component usage.",
+      "A CLI tool and NPM package for static code analysis that uses file system parsing to map function calls and component usage.",
     fullDescription:
       "Codebase Tracker is a powerful CLI utility built for developers who need to get a high-level overview of their codebase's architecture. It statically analyzes project files to generate dependency graphs, function call maps, and component usage statistics. This tool is particularly useful for auditing large legacy codebases or onboarding new team members by providing a clear map of how different parts of the application interact.",
     heroMedia: {
@@ -114,6 +114,42 @@ export const projectsData: Record<string, ProjectDetails> = {
         type: "image",
         url: "/projects/codebase-track-npm.png",
         caption: "NPM page of Codebase Tracker",
+      },
+    ],
+  },
+  "unicode-transformer": {
+    id: "unicode-transformer",
+    title: "Unicode Transformer",
+    shortDescription:
+      "NPM package to convert normal string to styled string and vice versa by unicode transformations.",
+    fullDescription:
+      "NPM package to convert normal string to styled string and vice versa by unicode transformations. It helps to create unique and styled strings for different purposes. Various APIs like LinkedIn does support unicode transformations to create unique strings for different purposes. This package provides a simple and easy way to convert normal strings to styled strings and vice versa.",
+    heroMedia: {
+      type: "image",
+      url: "/projects/unicode-npm.png",
+      alt: "NPM page of Unicode Transformer",
+    },
+    techStack: ["Node.js", "CLI", "JavaScript", "NPM", "Git"],
+    features: [
+      "Fast file system traversal and parsing",
+      "Generation of visual dependency graphs",
+      "Support for JavaScript, TypeScript, and Python files",
+      "Customizable ignore patterns (.gitignore support)",
+      "Export reports in .txt format with proper styling to understand the data",
+    ],
+    learnings: [
+      "Working with unicode transformations",
+      "Character Core fundamentals",
+    ],
+    links: {
+      repo: "https://github.com/Kanai2003/unicode-transformer",
+      live: "https://www.npmjs.com/package/unicode-transformer",
+    },
+    gallery: [
+      {
+        type: "image",
+        url: "/projects/unicode-npm.png",
+        caption: "NPM page of Unicode Transformer",
       },
     ],
   },
@@ -151,6 +187,37 @@ export const projectsData: Record<string, ProjectDetails> = {
         type: "image",
         url: "/projects/chat-mine-dashboard.png",
         caption: "Chat-Mine Analytics Dashboard",
+      },
+    ],
+  },
+  "led-grid-view": {
+    id: "led-grid-view",
+    title: "LED Grid View",
+    shortDescription:
+      "A responsive grid display for LED test using React and Next.js.",
+    fullDescription:
+      "LED Grid View is a responsive grid display for LED test using React and Next.js. It was just a fun project.",
+    heroMedia: {
+      type: "image",
+      url: "/projects/led-grid.png",
+      alt: "LED Grid View",
+    },
+    techStack: ["React", "CSS", "Next.js", "TypeScript"],
+    features: [
+      "Responsive grid display for LED test",
+      "Support for different LED sizes and colors",
+      "Support for different LED layouts",
+    ],
+    learnings: ["Understanding how to create LED grid display"],
+    links: {
+      live: "https://led-grid-view.vercel.app/",
+      repo: "https://github.com/Kanai2003/LED-Grid-view",
+    },
+    gallery: [
+      {
+        type: "image",
+        url: "/projects/led-grid.png",
+        caption: "LED Grid View",
       },
     ],
   },

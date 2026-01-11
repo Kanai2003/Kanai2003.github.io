@@ -119,11 +119,25 @@ export const resumeData = {
         "A CLI tool for static code analysis that uses file system parsing to map function calls and component usage.",
     },
     {
+      name: "Unicode Transformer",
+      tech: ["Node.js", "CLI", "JavaScript", "NPM", "Git"],
+      link: "https://www.npmjs.com/package/unicode-transformer",
+      description:
+        "NPM package to convert normal string to styled string and vice versa by unicode transformations.",
+    },
+    {
       name: "Chat-Mine",
       tech: ["Python", "Streamlit", "Data Analysis"],
       link: "https://chat-mine.streamlit.app/",
       description:
         "A data analytics engine using Python to parse and analyze large volumes of unstructured chat logs and visualize trends.",
+    },
+    {
+      name: "LED Grid View",
+      tech: ["React", "CSS", "Next.js", "TypeScript"],
+      link: "https://led-grid-view.vercel.app/",
+      description:
+        "A responsive grid display for LED test using React and Next.js. It was just a fun project.",
     },
   ],
   certificates: [
