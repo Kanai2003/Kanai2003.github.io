@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Portfolio of Kanailal Manna, a Software Development Engineer specializing in Full Stack Development, AI & ML, and DevOps.",
   icons: {
-    icon: "/mypic.jpg",
+    icon: "/mypic.jpeg",
   },
 };
 
