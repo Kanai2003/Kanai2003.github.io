@@ -17,6 +17,10 @@ export const profile = {
   /** npm account; packages and downloads on /open-source are fetched for this user. */
   npmUser: "kanai2003",
   resume: "/Kanai_Resume.pdf",
+  /** Name the file gets when someone downloads it. */
+  resumeFileName: "Kanailal-Manna-Resume.pdf",
+  /** Optional: a Calendly / Cal.com link. When set, "Book a call" buttons appear on the hire page. */
+  bookingUrl: "",
   photo: "/mypic.jpeg",
 
   /** One line. Shown in the hero, meta description and social cards. */

@@ -43,7 +43,7 @@ export default function SiteFooter() {
             </Link>
           ))}
           <Link href="/hire">Hire me</Link>
-          <a href={profile.resume} download>
+          <a href={profile.resume} download={profile.resumeFileName}>
             Résumé
           </a>
         </nav>

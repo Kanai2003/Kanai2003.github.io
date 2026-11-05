@@ -27,13 +27,12 @@ export const experience: Role[] = [
     summary:
       "Building datachecks.io, a platform where AI agents automate data migration and keep data integrity intact, across its agents, product features and delivery pipeline.",
     highlights: [
-      "Co-engineered the **datachecks.io** AI data migration platform, wiring Next.js frontends to **FastAPI (Python)** services.",
       "Implemented **AI agent features end to end**, including **Custom Guardrails** (rules on what the agent may do or say) and **Memory** (useful context kept across conversations).",
-      "Engineered **many backend and frontend product features** across the platform, from API design to shipped UI. Details are confidential and available to discuss at a high level in interviews.",
+      "Built the **CI/CD pipeline** with GitHub Actions and Docker, cutting release time from **about 1 hour to roughly 3 minutes**.",
       "Built **token usage tracking for every agent and every session**, so the team can see exactly what each agent run consumes.",
       "Set up an **AI agent that generates data migration reports**, giving teams a clear picture before and during a migration.",
       "**Migrated the deployment infrastructure from Azure to Railway** and wired it into CI, so merges deploy automatically.",
-      "Built the **CI/CD pipeline** with GitHub Actions and Docker, cutting release time from **about 1 hour to roughly 3 minutes**.",
+      "Engineered **many backend and frontend product features** across the **Next.js** frontend and **FastAPI (Python)** services, from API design to shipped UI. Details are confidential and available to discuss at a high level in interviews.",
       "**280+ commits across 4 repositories**: frontend, backend, open-source packages and CI/CD.",
     ],
     stack: ["Next.js", "TypeScript", "FastAPI", "Python", "AI agents", "PostgreSQL", "Docker", "GitHub Actions", "Railway", "Azure"],

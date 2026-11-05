@@ -143,7 +143,7 @@ export default function WorkPage() {
                 Open source and side projects <span>{ownWork.length}</span>
               </a>
             </nav>
-            <a href={profile.resume} download className="btn btn-ink">
+            <a href={profile.resume} download={profile.resumeFileName} className="btn btn-ink">
               <FiDownload aria-hidden /> Download résumé (PDF)
             </a>
           </div>

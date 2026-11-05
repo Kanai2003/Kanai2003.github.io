@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { FiDownload, FiLinkedin, FiMail } from "react-icons/fi";
+import { FiCalendar, FiDownload, FiLinkedin, FiMail } from "react-icons/fi";
 import CopyButton from "@/components/CopyButton";
 import Testimonials from "@/components/Testimonials";
 import { profile, proofPoints } from "@/data/profile";
-import { engagement, process, services } from "@/data/services";
+import { engagement, faq, process, services } from "@/data/services";
 import s from "./hire.module.css";
 
 export const metadata: Metadata = {
@@ -115,7 +115,7 @@ export default function HirePage() {
               ))}
             </ul>
             <div className="btn-row">
-              <a href={profile.resume} download className="btn btn-ink">
+              <a href={profile.resume} download={profile.resumeFileName} className="btn btn-ink">
                 <FiDownload aria-hidden /> Résumé (PDF)
               </a>
               <a href={roleMail} className="btn">
@@ -145,7 +145,10 @@ export default function HirePage() {
           <ul className={s.services}>
             {services.map((sv) => (
               <li key={sv.title}>
-                <h3>{sv.title}</h3>
+                <div className={s.svHead}>
+                  <h3>{sv.title}</h3>
+                  {sv.timeline && <span className={s.timeline}>{sv.timeline}</span>}
+                </div>
                 <p>{sv.body}</p>
                 <ul className="chips">
                   {sv.deliverables.map((d) => (
@@ -188,6 +191,26 @@ export default function HirePage() {
         </div>
       </section>
 
+      {/* Questions clients ask before the first call */}
+      <section className="section">
+        <div className={`wrap ${s.faqWrap}`}>
+          <div>
+            <h2 className="sec-title">Common questions</h2>
+            <p className="muted" style={{ marginTop: 12, maxWidth: "36ch" }}>
+              The things clients usually ask before we talk. Anything else, just email.
+            </p>
+          </div>
+          <div className={s.faq}>
+            {faq.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact */}
       <section className="section">
         <div className={`wrap ${s.contact}`}>
@@ -200,6 +223,11 @@ export default function HirePage() {
           </div>
           <div className={s.contactBox}>
             <div className="btn-row">
+              {profile.bookingUrl && (
+                <a href={profile.bookingUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ink">
+                  <FiCalendar aria-hidden /> Book a 30-minute call
+                </a>
+              )}
               <a href={roleMail} className="btn btn-ink">
                 <FiMail aria-hidden /> Email about a role
               </a>

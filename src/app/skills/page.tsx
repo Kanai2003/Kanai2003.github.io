@@ -16,8 +16,9 @@ export const metadata: Metadata = {
 function evidenceLink(id: string) {
   const role = experience.find((r) => r.id === id);
   const p = projects.find((x) => x.slug === id);
-  if (p) return { label: role ? role.company.split(" (")[0] : p.title, href: `/projects/${p.slug}` };
-  if (role) return { label: role.company.split(" (")[0], href: `/projects#${role.id}` };
+  const short = (c: string) => c.match(/\(([^)]+)\)/)?.[1] ?? c; // "Ploutos AI Technologies (Datachecks)" -> "Datachecks"
+  if (p) return { label: role ? short(role.company) : p.title, href: `/projects/${p.slug}` };
+  if (role) return { label: short(role.company), href: `/projects#${role.id}` };
   return null;
 }
 

@@ -52,7 +52,7 @@ const patterns: { title: string; body: string; status: Status; where: string }[]
     title: "Tool-using agents",
     body: "An LLM that decides which internal API to call next, with typed tool schemas and a hard step limit.",
     status: "Shipped",
-    where: "Datachecks: AI agent features alongside the data quality platform's FastAPI backend.",
+    where: "Datachecks: agents that call the migration platform's FastAPI services, with typed tools and step limits.",
   },
 
 

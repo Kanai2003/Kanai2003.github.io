@@ -69,7 +69,7 @@ export default function AboutPage() {
             <Link href="/projects" className="btn btn-ink">
               Work and experience
             </Link>
-            <a href={profile.resume} className="btn" download>
+            <a href={profile.resume} className="btn" download={profile.resumeFileName}>
               Download résumé
             </a>
           </div>
