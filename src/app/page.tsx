@@ -70,7 +70,7 @@ export default function Home() {
             <Link href="/projects" className="btn btn-ink">
               See my work
             </Link>
-            <a href={profile.resume} className="btn" download>
+            <a href={profile.resume} className="btn" download={profile.resumeFileName}>
               Download résumé
             </a>
           </div>
@@ -235,7 +235,7 @@ export default function Home() {
               <Link href="/hire#employers" className="btn btn-ink">
                 For employers
               </Link>
-              <a href={profile.resume} className="btn" download>
+              <a href={profile.resume} className="btn" download={profile.resumeFileName}>
                 Résumé (PDF)
               </a>
             </div>

@@ -85,7 +85,7 @@ export default function SiteHeader() {
               {n.label}
             </Link>
           ))}
-          <a className={`btn ${s.sheetResume}`} href={profile.resume} download>
+          <a className={`btn ${s.sheetResume}`} href={profile.resume} download={profile.resumeFileName}>
             Download résumé (PDF)
           </a>
         </nav>

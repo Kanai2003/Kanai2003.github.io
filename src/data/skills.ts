@@ -60,7 +60,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "Next.js", depth: "shipped", evidence: ["datachecks", "buzzli", "lynx-api"] },
       { name: "React", depth: "shipped", evidence: ["datachecks", "buzzli"] },
       { name: "TypeScript", depth: "shipped", evidence: ["datachecks", "lynx-api"] },
-      { name: "Tailwind CSS", depth: "shipped", evidence: ["lynx-api"] },
+      { name: "Tailwind CSS", depth: "built", evidence: ["lynx-api"] },
       { name: "Redux", depth: "shipped" },
       { name: "Zustand", depth: "shipped" },
       { name: "Recoil", depth: "built" },
