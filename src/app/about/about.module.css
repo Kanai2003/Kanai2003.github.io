@@ -1,0 +1,123 @@
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(32px, 6vw, 80px);
+  align-items: start;
+  padding-block: clamp(40px, 7vw, 96px);
+}
+.portrait {
+  position: sticky;
+  top: 96px;
+}
+.portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 25%;
+  border-radius: var(--r-lg);
+  background: var(--sunken);
+}
+.story {
+  display: grid;
+  gap: 28px;
+}
+.story h1 {
+  font-size: var(--t-2xl);
+}
+.text {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--ink-2);
+  max-width: 62ch;
+}
+.principles {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 48px;
+}
+.principles li {
+  display: grid;
+  gap: 8px;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule);
+}
+.principles h3 {
+  font-size: var(--t-md);
+}
+.principles p {
+  color: var(--ink-2);
+  max-width: 52ch;
+}
+.anchor {
+  scroll-margin-top: 64px;
+}
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.edu {
+  margin-top: 24px;
+  display: grid;
+  gap: 4px;
+}
+.edu h3 {
+  font-size: var(--t-md);
+}
+.honors {
+  margin-top: 12px;
+  padding-left: 1.2em;
+  display: grid;
+  gap: 6px;
+  color: var(--ink-2);
+}
+.honors li::marker {
+  color: var(--accent);
+}
+.langTitle {
+  font-size: var(--t-base);
+  margin: 28px 0 4px;
+}
+.certs {
+  list-style: none;
+  margin-top: 24px;
+  display: grid;
+}
+.certs a {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid var(--rule);
+  text-decoration: none;
+}
+.certs a:hover strong {
+  color: var(--accent);
+}
+.certs a > span {
+  display: grid;
+  gap: 2px;
+}
+.certs .muted {
+  font-size: var(--t-sm);
+}
+.certIcon {
+  flex-shrink: 0;
+  margin-top: 4px;
+  color: var(--accent);
+}
+@media (max-width: 860px) {
+  .two {
+    grid-template-columns: 1fr;
+  }
+  .intro {
+    grid-template-columns: 1fr;
+  }
+  .portrait {
+    position: static;
+    max-width: 360px;
+  }
+  .principles {
+    grid-template-columns: 1fr;
+  }
+}

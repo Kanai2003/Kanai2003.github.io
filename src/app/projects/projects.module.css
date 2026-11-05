@@ -1,0 +1,310 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.headSide {
+  display: grid;
+  gap: 16px;
+  justify-items: start;
+}
+.jump {
+  display: grid;
+  min-width: 300px;
+}
+.jump a {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 10px 0;
+  border-top: 1px solid var(--rule);
+  font-weight: 500;
+  text-decoration: none;
+}
+.jump a:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.jump a:hover {
+  color: var(--accent);
+}
+.jump span {
+  color: var(--muted);
+  font-weight: 400;
+}
+.anchor {
+  scroll-margin-top: 64px;
+}
+
+/* Experience: what I did on the left, a sticky facts card on the right */
+.timeline {
+  list-style: none;
+  display: grid;
+}
+.role {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 56px;
+  padding-block: 44px;
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: 80px;
+}
+.role:first-child {
+  border-top: 2px solid var(--ink);
+}
+.card {
+  grid-column: 2;
+  grid-row: 1;
+  position: sticky;
+  top: 88px;
+  align-self: start;
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+.cardHead {
+  display: grid;
+  gap: 4px;
+}
+.company {
+  font-size: var(--t-lg);
+  line-height: 1.15;
+}
+.company a {
+  text-decoration: none;
+}
+.company a:hover {
+  color: var(--accent);
+}
+.ext {
+  display: inline;
+  width: 0.55em;
+  height: 0.55em;
+  vertical-align: 0.15em;
+  color: var(--muted);
+}
+.title {
+  font-weight: 500;
+  color: var(--ink-2);
+}
+.facts {
+  margin: 0;
+  display: grid;
+  border-top: 1px solid var(--rule);
+}
+.facts div {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: var(--t-sm);
+}
+.facts dt {
+  color: var(--muted);
+}
+.facts dd {
+  margin: 0;
+  font-weight: 500;
+}
+.promo {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--signal) 78%, var(--ink));
+  background: color-mix(in srgb, var(--signal) 11%, transparent);
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+.promo::before {
+  content: "↑";
+  font-weight: 700;
+}
+.caseLink {
+  display: grid;
+  border-radius: var(--r-md);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.caseLink:hover {
+  border-color: var(--ink-2);
+}
+.caseThumb {
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: var(--sunken);
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+.caseThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+}
+.caseLink:hover .caseThumb img {
+  transform: scale(1.03);
+}
+.caseGo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px;
+  font-size: var(--t-sm);
+  font-weight: 500;
+  color: var(--accent);
+}
+.what {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  max-width: 72ch;
+}
+.summary {
+  font-size: var(--t-md);
+  line-height: 1.5;
+  color: var(--ink);
+}
+.highlights {
+  display: grid;
+  gap: 10px;
+  margin: 4px 0 10px;
+  padding-left: 1.2em;
+  color: var(--ink-2);
+}
+.highlights li::marker {
+  color: var(--accent);
+}
+.highlights strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Side projects */
+.sideGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.side {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--r-md);
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  overflow: hidden;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.side:hover {
+  border-color: var(--ink-2);
+}
+.sideMedia {
+  aspect-ratio: 16 / 9;
+  background: var(--sunken);
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+.sideMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.sideBody {
+  display: grid;
+  gap: 10px;
+  padding: 20px 22px 24px;
+}
+.sideMeta {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+.sideTitle {
+  font-size: var(--t-lg);
+}
+.side:hover .sideTitle {
+  color: var(--accent);
+}
+.sideTag {
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+}
+.sideResult {
+  font-size: var(--t-sm);
+  color: var(--muted);
+}
+.sideResult strong {
+  color: var(--ink);
+}
+
+.cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+@media (max-width: 1020px) {
+  .role {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 36px;
+  }
+}
+@media (max-width: 960px) {
+  .sideGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  /* Card first on phones, so the company and dates lead */
+  .role {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .card {
+    grid-column: 1;
+    grid-row: 1;
+    position: static;
+  }
+  .what {
+    grid-row: 2;
+  }
+  .caseLink {
+    grid-template-columns: 120px 1fr;
+  }
+  .caseThumb {
+    aspect-ratio: auto;
+    border-bottom: 0;
+    border-right: 1px solid var(--rule);
+  }
+}
+@media (max-width: 640px) {
+  .sideGrid {
+    grid-template-columns: 1fr;
+  }
+  .jump {
+    min-width: 0;
+    width: 100%;
+  }
+  .headSide {
+    width: 100%;
+  }
+}

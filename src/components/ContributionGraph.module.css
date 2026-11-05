@@ -1,0 +1,69 @@
+.fig {
+  margin: 0;
+  padding: 20px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+}
+.bare {
+  margin: 0;
+}
+.scroll {
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.scroll svg {
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+  max-width: none;
+}
+.month {
+  font: 10px var(--font-body);
+  fill: var(--muted);
+}
+.cell,
+.key i {
+  fill: var(--sunken);
+  background: var(--sunken);
+}
+.cell[data-level="1"],
+.key i[data-level="1"] {
+  fill: color-mix(in srgb, var(--accent) 30%, var(--sunken));
+  background: color-mix(in srgb, var(--accent) 30%, var(--sunken));
+}
+.cell[data-level="2"],
+.key i[data-level="2"] {
+  fill: color-mix(in srgb, var(--accent) 55%, var(--sunken));
+  background: color-mix(in srgb, var(--accent) 55%, var(--sunken));
+}
+.cell[data-level="3"],
+.key i[data-level="3"] {
+  fill: color-mix(in srgb, var(--accent) 78%, var(--sunken));
+  background: color-mix(in srgb, var(--accent) 78%, var(--sunken));
+}
+.cell[data-level="4"],
+.key i[data-level="4"] {
+  fill: var(--accent);
+  background: var(--accent);
+}
+.cap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+  font-size: var(--t-sm);
+  color: var(--muted);
+}
+.key {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+}
+.key i {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}

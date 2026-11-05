@@ -1,0 +1,30 @@
+.list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.item {
+  margin: 0;
+  display: grid;
+  gap: 20px;
+  height: 100%;
+  padding: 28px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+}
+.item blockquote {
+  margin: 0;
+  font: 500 var(--t-md) / 1.45 var(--font-display);
+  letter-spacing: -0.01em;
+}
+.item figcaption {
+  display: grid;
+  gap: 2px;
+  align-self: end;
+  font-size: var(--t-sm);
+}
+.item figcaption span {
+  color: var(--muted);
+}
