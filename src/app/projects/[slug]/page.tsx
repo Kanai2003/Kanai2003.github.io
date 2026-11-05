@@ -1,184 +1,193 @@
-import { projectsData } from "@/data/projects";
-import styles from "./page.module.css";
-import Image from "next/image";
+import type { Metadata } from "next";
+import Rich from "@/components/Rich";
 import Link from "next/link";
-import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
 import { notFound } from "next/navigation";
-import { getSkillIcon } from "@/constants/skills";
+import { FiArrowLeft, FiExternalLink, FiGithub, FiPackage, FiPlayCircle } from "react-icons/fi";
+import { getProject, projects } from "@/data/projects";
+import s from "./case.module.css";
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return Object.keys(projectsData).map((slug) => ({
-    slug,
-  }));
+  return projects.map((p) => ({ slug: p.slug }));
 }
 
-export default async function ProjectPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const project = projectsData[slug];
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const p = getProject((await params).slug);
+  if (!p) return {};
+  return {
+    title: p.title,
+    description: p.tagline,
+    openGraph: { title: p.title, description: p.tagline, images: p.cover ? [p.cover] : undefined },
+  };
+}
 
-  if (!project) {
-    notFound();
-  }
+function youTubeId(url: string) {
+  const m = url.match(/(?:youtu\.be\/|v=)([\w-]{11})/);
+  return m?.[1];
+}
+
+export default async function CaseStudy({ params }: { params: Promise<{ slug: string }> }) {
+  const p = getProject((await params).slug);
+  if (!p) notFound();
+
+  const idx = projects.findIndex((x) => x.slug === p.slug);
+  const next = projects[(idx + 1) % projects.length];
+
+  const links = [
+    p.links.live && { href: p.links.live, label: "Open live site", Icon: FiExternalLink, primary: true },
+    p.links.package && { href: p.links.package, label: "View on npm", Icon: FiPackage, primary: !p.links.live },
+    p.links.repo && { href: p.links.repo, label: "Source code", Icon: FiGithub },
+    p.links.video && {
+      href: p.links.video,
+      label: "Watch demo",
+      Icon: FiPlayCircle,
+      primary: !p.links.live && !p.links.package,
+    },
+  ].filter(Boolean) as { href: string; label: string; Icon: React.ElementType; primary?: boolean }[];
 
   return (
-    <main className={styles.container}>
-      <Link href="/#projects" className={styles.backLink}>
-        <FaArrowLeft /> Back to Projects
-      </Link>
-
-      <section className={styles.hero}>
-        <Image
-          src={project.heroMedia.url}
-          alt={project.heroMedia.alt}
-          fill
-          priority
-          className={styles.heroImage}
-        />
-        <div className={styles.heroOverlay}>
-          <div className={styles.heroContent}>
-            <h1 className={styles.title}>{project.title}</h1>
-            <p className={styles.shortDescription}>
-              {project.shortDescription}
+    <article>
+      <header className="page-head">
+        <div className="wrap">
+          <Link href="/projects" className={s.back}>
+            <FiArrowLeft aria-hidden /> All work
+          </Link>
+          <h1>{p.title}</h1>
+          <p className="lede">{p.tagline}</p>
+          {p.confidential && (
+            <p className={s.note}>
+              Company work. This page covers my role and the product&apos;s public features; internal code, data and
+              architecture are left out.
             </p>
+          )}
+          <dl className={s.facts}>
+            <div>
+              <dt>Role</dt>
+              <dd>{p.role}</dd>
+            </div>
+            <div>
+              <dt>Year</dt>
+              <dd>{p.year}</dd>
+            </div>
+            <div>
+              <dt>Area</dt>
+              <dd>{p.category}</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>{p.stack.join(", ")}</dd>
+            </div>
+          </dl>
+          {links.length > 0 && (
+            <div className="btn-row" style={{ marginTop: 28 }}>
+              {links.map(({ href, label, Icon, primary }) => (
+                <a
+                  key={href + label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`btn ${primary ? "btn-ink" : ""}`}
+                >
+                  <Icon aria-hidden /> {label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      </header>
+
+      {p.cover && (
+        <div className={`wrap ${s.hero}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={p.cover} alt={`${p.title} screenshot`} />
+        </div>
+      )}
+
+      <section className="section">
+        <div className={`wrap ${s.body}`}>
+          <div className={s.block}>
+            <h2>The problem</h2>
+            <div className="prose">
+              <p>{p.problem}</p>
+            </div>
+          </div>
+          <div className={s.block}>
+            <h2>What I built</h2>
+            <ul className="prose">
+              {p.approach.map((a) => (
+                <li key={a}>
+                  <Rich text={a} />
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={s.block}>
+            <h2>Result</h2>
+            <ul className="prose">
+              {p.outcome.map((a) => (
+                <li key={a}>
+                  <Rich text={a} />
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={s.block}>
+            <h2>What I learned</h2>
+            <ul className="prose">
+              {p.learnings.map((a) => (
+                <li key={a}>{a}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      <div className={styles.contentContainer}>
-        <div className={styles.mainContent}>
-          <section>
-            <h2 className={styles.sectionTitle}>Overview</h2>
-            <p className={styles.text}>{project.fullDescription}</p>
-          </section>
-
-          <section>
-            <h2 className={styles.sectionTitle}>Key Features</h2>
-            <ul className={styles.featureList}>
-              {project.features.map((feature, index) => (
-                <li key={index} className={styles.featureItem}>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section>
-            <h2 className={styles.sectionTitle}>Learnings & Challenges</h2>
-            <ul className={styles.learningList}>
-              {project.learnings.map((learning, index) => (
-                <li key={index} className={styles.learningItem}>
-                  {learning}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section>
-            <h2 className={styles.sectionTitle}>Gallery</h2>
-            <div className={styles.gallery}>
-              {project.gallery.map((item, index) => {
-                const isYouTube = item.type === "video";
-
-                let videoId = "";
-                if (isYouTube) {
-                  try {
-                    const urlObj = new URL(item.url);
-                    if (item.url.includes("youtube.com")) {
-                      videoId = urlObj.searchParams.get("v") || "";
-                    } else if (item.url.includes("youtu.be")) {
-                      videoId = urlObj.pathname.slice(1);
-                    }
-                  } catch (e) {
-                    console.error("Invalid YouTube URL:", item.url);
-                  }
-                }
-
+      {p.gallery.length > 1 && (
+        <section className="section">
+          <div className="wrap">
+            <h2 className="sec-title" style={{ marginBottom: 32 }}>
+              Gallery
+            </h2>
+            <div className={s.gallery}>
+              {p.gallery.map((g) => {
+                const yt = g.type === "video" ? youTubeId(g.url) : undefined;
                 return (
-                  <div key={index} className={styles.galleryItem}>
-                    {isYouTube && videoId ? (
-                      <div className={styles.videoWrapper}>
+                  <figure key={g.url + g.caption} className={yt ? s.wide : undefined}>
+                    {yt ? (
+                      <div className={s.video}>
                         <iframe
-                          width="100%"
-                          height="100%"
-                          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}`}
-                          title={item.caption}
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          src={`https://www.youtube-nocookie.com/embed/${yt}`}
+                          title={g.caption}
+                          loading="lazy"
+                          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
-                          className={styles.iframe}
-                        ></iframe>
+                        />
                       </div>
+                    ) : g.type === "video" ? (
+                      <video src={g.url} controls preload="metadata" />
                     ) : (
-                      <Image
-                        src={item.url}
-                        alt={item.caption}
-                        width={800}
-                        height={600}
-                        className={styles.galleryImage}
-                      />
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={g.url} alt={g.caption} loading="lazy" />
                     )}
-                    <div className={styles.galleryCaption}>{item.caption}</div>
-                  </div>
+                    <figcaption>{g.caption}</figcaption>
+                  </figure>
                 );
               })}
             </div>
-          </section>
+          </div>
+        </section>
+      )}
+
+      <section className="section">
+        <div className="wrap">
+          <Link href={`/projects/${next.slug}`} className={s.next}>
+            <span className="muted">Next project</span>
+            <span className={s.nextTitle}>{next.title}</span>
+            <span className="muted">{next.tagline}</span>
+          </Link>
         </div>
-
-        <aside className={styles.sidebar}>
-          <div className={styles.sidebarSection}>
-            <h3 className={styles.sidebarTitle}>Tech Stack</h3>
-            <div className={styles.techTags}>
-              {project.techStack.map((tech, index) => {
-                const Icon = getSkillIcon(tech);
-                return (
-                  <span key={index} className={styles.techTag}>
-                    <Icon
-                      style={{
-                        marginRight: "0.25rem",
-                        verticalAlign: "middle",
-                      }}
-                    />{" "}
-                    {tech}
-                  </span>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className={styles.sidebarSection}>
-            <h3 className={styles.sidebarTitle}>Links</h3>
-            <div
-              style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-            >
-              {project.links.live && (
-                <a
-                  href={project.links.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.linkButton}
-                >
-                  <FaExternalLinkAlt /> Live Demo
-                </a>
-              )}
-              {project.links.repo && (
-                <a
-                  href={project.links.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${styles.linkButton} ${styles.secondary}`}
-                >
-                  <FaGithub /> View Code
-                </a>
-              )}
-            </div>
-          </div>
-        </aside>
-      </div>
-    </main>
+      </section>
+    </article>
   );
 }

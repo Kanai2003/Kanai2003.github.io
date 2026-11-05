@@ -1,0 +1,308 @@
+/* Hero fills the first screen (minus the header) and centres both columns in it,
+   so the agent card sits mid-screen and the buttons are visible without scrolling. */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  align-content: center;
+  min-height: min(calc(100svh - 65px), 860px);
+  padding-block: clamp(24px, 4vw, 56px);
+}
+.heroText {
+  display: grid;
+  gap: 20px;
+  justify-items: start;
+}
+.h1 {
+  font-size: clamp(2rem, 2.1vw + 1.2rem, 3.15rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  font-variation-settings: "wdth" 92;
+  max-width: 17ch;
+}
+.heroLede {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 56ch;
+}
+.id {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 4px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  width: 100%;
+}
+.id img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+.id div {
+  display: grid;
+  gap: 2px;
+  font-size: var(--t-sm);
+}
+.id span {
+  color: var(--muted);
+}
+.heroTrace {
+  min-width: 0;
+}
+
+/* Proof band */
+.proofBand {
+  border-block: 1px solid var(--rule);
+  background: var(--surface);
+}
+.proof {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+}
+.proof li {
+  display: grid;
+  gap: 6px;
+  padding: 28px 24px 28px 0;
+}
+.proof li + li {
+  border-left: 1px solid var(--rule);
+  padding-left: 24px;
+}
+.proofValue {
+  font: 600 clamp(1.6rem, 2vw + 1rem, 2.25rem) / 1 var(--font-display);
+  letter-spacing: -0.03em;
+}
+.proofLabel {
+  font-size: var(--t-sm);
+  color: var(--muted);
+  max-width: 28ch;
+}
+
+/* Work */
+.workGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.workLead {
+  grid-column: 1 / -1;
+  display: grid;
+}
+.workLead > a {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+}
+.workLead > a > div:first-child {
+  border-bottom: 0;
+  border-right: 1px solid var(--rule);
+}
+.workLead > a > div:last-child {
+  align-content: center;
+  padding: 32px;
+}
+
+/* Layers */
+.layers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+  border-top: 2px solid var(--ink);
+}
+.layers > li {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 24px 24px 8px 0;
+}
+.layers > li + li {
+  padding-left: 24px;
+  border-left: 1px solid var(--rule);
+}
+.layers h3 {
+  font-size: var(--t-md);
+}
+.layers p {
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+}
+.stackFoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+}
+.core {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+.coreTitle {
+  font-size: var(--t-md);
+}
+.coreList {
+  margin: 0;
+  display: grid;
+}
+.coreList > div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 16px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-top: 1px solid var(--rule);
+}
+.coreList dt {
+  font-size: var(--t-sm);
+  color: var(--muted);
+}
+.coreList dd {
+  margin: 0;
+}
+
+/* Why teams hire me now */
+.values {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 2px solid var(--ink);
+}
+.values > li {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
+  padding: 24px 24px 4px 0;
+}
+.values > li + li {
+  padding-left: 24px;
+  border-left: 1px solid var(--rule);
+}
+.values h3 {
+  font-size: var(--t-md);
+}
+.values p {
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+}
+.values p strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.valueProof {
+  font-size: var(--t-sm);
+  color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+/* Audiences */
+.paths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.path {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  padding: clamp(28px, 4vw, 44px);
+  border-radius: var(--r-lg);
+  background: var(--accent-soft);
+}
+.path h2 {
+  font-size: var(--t-xl);
+}
+.path p {
+  color: var(--ink-2);
+  max-width: 44ch;
+  margin-bottom: 8px;
+}
+.pathAlt {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+}
+
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .proof {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .proof li:nth-child(3) {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .proof li:nth-child(n + 3) {
+    border-top: 1px solid var(--rule);
+  }
+  .layers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .layers > li:nth-child(3) {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .paths {
+    grid-template-columns: 1fr;
+  }
+  .values {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .values > li:nth-child(3) {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .values > li:nth-child(n + 3) {
+    border-top: 1px solid var(--rule);
+  }
+  .core {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+@media (max-width: 640px) {
+  .workGrid {
+    grid-template-columns: 1fr;
+  }
+  .workLead > a {
+    grid-template-columns: 1fr;
+  }
+  .workLead > a > div:first-child {
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .workLead > a > div:last-child {
+    padding: 20px 22px 24px;
+  }
+  .layers,
+  .values {
+    grid-template-columns: 1fr;
+  }
+  .values > li + li {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid var(--rule);
+  }
+  .coreList > div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .layers > li + li {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid var(--rule);
+  }
+}
