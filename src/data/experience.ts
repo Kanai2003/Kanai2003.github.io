@@ -35,7 +35,7 @@ export const experience: Role[] = [
       "Engineered **many backend and frontend product features** across the **Next.js** frontend and **FastAPI (Python)** services, from API design to shipped UI. Details are confidential and available to discuss at a high level in interviews.",
       "**280+ commits across 4 repositories**: frontend, backend, open-source packages and CI/CD.",
     ],
-    stack: ["Next.js", "TypeScript", "FastAPI", "Python", "AI agents", "PostgreSQL", "Docker", "GitHub Actions", "Railway", "Azure"],
+    stack: ["Next.js", "TypeScript", "FastAPI", "Python", "LangChain", "LangGraph", "AI agents", "PostgreSQL", "Docker", "GitHub Actions", "Railway", "Azure"],
   },
   {
     id: "buzzli",
@@ -55,7 +55,7 @@ export const experience: Role[] = [
       "Rebuilt the UI for mobile and desktop and **raised the SEO score from 68 to 92**.",
       "**Authored and merged 150+ PRs**; reviewed code and mentored new interns.",
     ],
-    stack: ["Next.js", "React", "Node.js", "Express.js", "CosmosDB", "Python", "AI agents"],
+    stack: ["Next.js", "React", "MUI", "Node.js", "Express.js", "CosmosDB", "Python", "AI agents"],
   },
   {
     id: "open-source",
