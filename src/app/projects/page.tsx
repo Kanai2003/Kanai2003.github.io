@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FiArrowRight, FiArrowUpRight, FiDownload } from "react-icons/fi";
@@ -7,11 +8,11 @@ import { getProject, projects, type Project } from "@/data/projects";
 import { profile } from "@/data/profile";
 import s from "./projects.module.css";
 
-export const metadata: Metadata = {
-  title: "Work",
-  description:
-    "Work history and case studies of Kanailal Manna: AI agent and full-stack work at Datachecks and Buzzli, plus open-source developer tools.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Work", description:
+    "Case studies by Kanailal Manna: AI agents and full-stack features at Datachecks and Buzzli, a 1,400 RPS URL shortener, and open-source developer tools.",
+  path: "/projects",
+});
 
 /**
  * One job. Left: what I did (summary, bold highlights, stack).

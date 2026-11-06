@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import { FiCalendar, FiDownload, FiLinkedin, FiMail } from "react-icons/fi";
 import CopyButton from "@/components/CopyButton";
@@ -6,11 +7,11 @@ import { profile, proofPoints } from "@/data/profile";
 import { engagement, faq, process, services } from "@/data/services";
 import s from "./hire.module.css";
 
-export const metadata: Metadata = {
-  title: "Hire me",
-  description:
-    "Hire Kanailal Manna for a full-time AI engineer or full-stack role, or for freelance AI features, SaaS MVPs and frontend rebuilds.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Hire me", description:
+    "Hire Kanailal Manna for a full-time, contract or contract-to-hire AI engineer or full-stack role, or for freelance AI features, MVPs and CI/CD work.",
+  path: "/hire",
+});
 
 const mailto = (subject: string, body: string) =>
   `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

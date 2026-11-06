@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { depthLabel, skillGroups, type Depth } from "@/data/skills";
@@ -6,11 +7,11 @@ import { projects } from "@/data/projects";
 import CopyButton from "@/components/CopyButton";
 import s from "./skills.module.css";
 
-export const metadata: Metadata = {
-  title: "Skills",
-  description:
-    "Skills matrix for Kanailal Manna: AI and LLM engineering, Next.js, FastAPI, Python, TypeScript, Docker and CI/CD, each linked to where it was used.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Skills", description:
+    "Kanailal Manna's skills, each linked to proof: AI agents with LangChain and LangGraph, Next.js, FastAPI, Python, PostgreSQL, Redis, Docker and CI/CD.",
+  path: "/skills",
+});
 
 /** Prefer a case study when one exists, otherwise the role on the experience page. */
 function evidenceLink(id: string) {

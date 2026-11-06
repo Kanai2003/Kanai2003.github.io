@@ -1,12 +1,13 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import s from "./ai.module.css";
 
-export const metadata: Metadata = {
-  title: "AI systems",
-  description:
-    "How Kanailal Manna designs and ships AI features: agents with LangGraph, tool calling, retrieval, streaming interfaces and production guardrails.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "AI systems", description:
+    "How Kanailal Manna builds production AI features: LangGraph agents, tool calling, guardrails, memory, token tracking, and the APIs and interfaces around them.",
+  path: "/ai",
+});
 
 const architecture = [
   {

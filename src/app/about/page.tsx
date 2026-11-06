@@ -1,3 +1,4 @@
+import { breadcrumbs, jsonLd, pageMetadata, personId } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import PhotoGrid, { visiblePhotos } from "@/components/PhotoGrid";
@@ -6,10 +7,12 @@ import { FiAward } from "react-icons/fi";
 import { certificates, education, profile } from "@/data/profile";
 import s from "./about.module.css";
 
-export const metadata: Metadata = {
-  title: "About",
-  description: "About Kanailal Manna: background, how I work, and photos.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "About", description:
+    "About Kanailal Manna, a software engineer from Kolkata, India: background, how I work, education, certifications and the path from DSA notes to AI agents.",
+  path: "/about",
+  type: "profile",
+});
 
 const principles = [
   {
@@ -33,6 +36,19 @@ const principles = [
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={jsonLd([
+          {
+            "@context": "https://schema.org",
+            "@type": "ProfilePage",
+            url: `${profile.siteUrl}/about`,
+            name: `About ${profile.name}`,
+            mainEntity: { "@id": personId },
+          },
+          breadcrumbs([{ name: "About", path: "/about" }]),
+        ])}
+      />
       <section className={`wrap ${s.intro}`}>
         <div className={s.portrait}>
           {/* Replace /public/mypic.jpeg to change this photo. A 4:5 portrait works best. */}

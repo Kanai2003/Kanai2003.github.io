@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Rich from "@/components/Rich";
 import AgentTrace from "@/components/AgentTrace";
@@ -7,6 +9,13 @@ import { projects } from "@/data/projects";
 import { coreStack } from "@/data/skills";
 import Testimonials from "@/components/Testimonials";
 import s from "./home.module.css";
+
+
+export const metadata: Metadata = pageMetadata({
+  description:
+    "Kanailal Manna is an AI full-stack engineer in India building AI agents with LangGraph, FastAPI and Next.js. Open to AI engineer roles and freelance projects.",
+  path: "/",
+});
 
 const layers = [
   {

@@ -8,7 +8,8 @@ import Link from "next/link";
  */
 export const metadata: Metadata = {
   title: "Experience",
-  robots: { index: false },
+  robots: { index: false, follow: true },
+  alternates: { canonical: "/projects" },
 };
 
 export default function ExperienceRedirect() {

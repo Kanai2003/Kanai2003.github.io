@@ -44,6 +44,14 @@ Replace `public/Kanai_Resume.pdf`. Every download button points to it (path set 
 
 `public/og.png` (1200×630) is what shows when the link is shared on LinkedIn, X, Slack or email.
 
+## SEO
+
+- Every page builds its metadata with `pageMetadata()` in `src/lib/seo.ts`: unique title and description, canonical URL, and Open Graph / Twitter tags for that page.
+- Structured data (JSON-LD): `Person` and `WebSite` site-wide, `ProfilePage` on About, and `BreadcrumbList` plus `CreativeWork` / `SoftwareSourceCode` on each case study.
+- `sitemap.xml` and `robots.txt` are generated at build time. `/experience` is `noindex` with a canonical to `/projects`.
+- `/llms.txt` gives AI assistants and AI search a plain-text summary, generated from `src/data`.
+- To verify the site in Google Search Console or Bing Webmaster Tools, paste the token into `seo` in `src/data/profile.ts`, deploy, then submit `https://kanai2003.github.io/sitemap.xml`.
+
 ## GitHub and npm data
 
 Nothing on `/open-source` is typed in by hand. `src/lib/github.ts` fetches it at build time from:

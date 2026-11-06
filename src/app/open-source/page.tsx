@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import { FiArrowUpRight, FiDownload, FiGitBranch, FiGitPullRequest, FiPackage, FiStar } from "react-icons/fi";
 import ContributionGraph from "@/components/ContributionGraph";
@@ -5,10 +6,11 @@ import { getExternalContributions, getGitHubData, getNpmPackages, type GitHubRep
 import { profile } from "@/data/profile";
 import s from "./oss.module.css";
 
-export const metadata: Metadata = {
-  title: "Open source",
-  description: "Live GitHub activity, npm packages and open-source contributions by Kanailal Manna.",
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Open source", description:
+    "Live GitHub and npm stats for Kanailal Manna: contribution graph, languages, published npm packages and pull requests merged into other open-source projects.",
+  path: "/open-source",
+});
 
 /** Six steps from cobalt through teal to grey: harmonised, not rainbow. */
 const langColors = ["var(--accent)", "#4f8ae6", "#33a8c7", "#3cb592", "#9aa7c4", "#c7cedc"];
