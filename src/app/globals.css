@@ -19,9 +19,9 @@
   --code-ink: #d6dcea;
   --code-muted: #7d889c;
 
-  --font-display: var(--f-display), "Segoe UI", system-ui, sans-serif;
-  --font-body: var(--f-body), "Segoe UI", system-ui, sans-serif;
-  --font-mono: var(--f-mono), ui-monospace, monospace;
+  --font-display: "Bricolage Grotesque Variable", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
 
   /* Type scale: 1.25 ratio, 17px base */
   --t-sm: 0.875rem;
