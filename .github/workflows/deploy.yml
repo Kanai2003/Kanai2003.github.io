@@ -112,3 +112,21 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Tell Bing, Yandex and other IndexNow search engines that the pages changed,
+      # so they recrawl within minutes. The key file is public/<key>.txt (public by design).
+      - name: Notify search engines (IndexNow)
+        continue-on-error: true
+        env:
+          SITE: https://kanai2003.github.io
+          INDEXNOW_KEY: a9ff2f894fd34e66a52a24c98026caa6
+        run: |
+          sleep 30  # give the new deployment a moment to go live
+          urls=$(curl -fsS "$SITE/sitemap.xml?ts=$(date +%s)" | grep -o '<loc>[^<]*</loc>' | sed 's/<\/\?loc>//g' | jq -R . | jq -sc .)
+          echo "Submitting $(echo "$urls" | jq length) URLs"
+          body=$(jq -nc --arg host "${SITE#https://}" --arg key "$INDEXNOW_KEY" \
+            --arg loc "$SITE/$INDEXNOW_KEY.txt" --argjson urls "$urls" \
+            '{host:$host, key:$key, keyLocation:$loc, urlList:$urls}')
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json; charset=utf-8' -d "$body")
+          echo "IndexNow responded HTTP $code (200 or 202 means accepted)"
