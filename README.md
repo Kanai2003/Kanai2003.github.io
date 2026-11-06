@@ -32,13 +32,13 @@ All content lives in `src/data/`. You should rarely need to touch a component.
 
 ### Photos
 
-- **Portrait**: replace `public/mypic.jpeg` (4:5 crop works best). It's used on the home page, the About page and in structured data.
+- **Portrait**: replace `public/kanailal-manna.jpg` (4:5 crop works best; the file name helps image search for your name). It's used on the home page, the About page and in structured data.
 - **Gallery**: put images in `public/gallery/` and list them in `src/data/gallery.ts`. During `npm run dev`, entries without a file show as labelled empty frames so you can see where each photo goes. The published site hides them, and hides the whole Photos section until at least one photo exists.
 - **Project screenshots**: put them in `public/projects/` and reference them in the project's `cover` and `gallery` in `projects.ts`. YouTube links in a gallery are embedded automatically.
 
 ### Résumé
 
-Replace `public/Kanai_Resume.pdf`. Every download button points to it (path set in `profile.ts`).
+Replace `public/kanailal-manna-resume.pdf`. Every download button points to it (path set in `profile.ts`). `Kanai_Resume.pdf` is kept only so old links keep working.
 
 ### Social preview image
 
@@ -49,6 +49,7 @@ Replace `public/Kanai_Resume.pdf`. Every download button points to it (path set 
 - Every page builds its metadata with `pageMetadata()` in `src/lib/seo.ts`: unique title and description, canonical URL, and Open Graph / Twitter tags for that page.
 - Structured data (JSON-LD): `Person` and `WebSite` site-wide, `ProfilePage` on About, and `BreadcrumbList` plus `CreativeWork` / `SoftwareSourceCode` on each case study.
 - `sitemap.xml` and `robots.txt` are generated at build time. `/experience` is `noindex` with a canonical to `/projects`.
+- Your full name is the H1 on the home and About pages, and the structured data lists name variants (`alternateNames` in `profile.ts`) and every profile in `links`, which footer links mark with `rel="me"`.
 - `/llms.txt` gives AI assistants and AI search a plain-text summary, generated from `src/data`.
 - To verify the site in Google Search Console or Bing Webmaster Tools, paste the token into `seo` in `src/data/profile.ts`, deploy, then submit `https://kanai2003.github.io/sitemap.xml`.
 

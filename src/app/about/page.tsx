@@ -12,7 +12,16 @@ export const metadata: Metadata = pageMetadata({
     "About Kanailal Manna, a software engineer from Kolkata, India: background, how I work, education, certifications and the path from DSA notes to AI agents.",
   path: "/about",
   type: "profile",
+  image: profile.photo,
+  imageAlt: `${profile.name}, ${profile.role}`,
 });
+metadata.openGraph = {
+  ...metadata.openGraph,
+  type: "profile",
+  firstName: profile.givenName,
+  lastName: profile.familyName,
+  username: profile.githubUser,
+};
 
 const principles = [
   {
@@ -51,12 +60,13 @@ export default function AboutPage() {
       />
       <section className={`wrap ${s.intro}`}>
         <div className={s.portrait}>
-          {/* Replace /public/mypic.jpeg to change this photo. A 4:5 portrait works best. */}
+          {/* Replace the file at profile.photo to change this photo. A 4:5 portrait works best. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={profile.photo} alt={`Portrait of ${profile.name}`} />
+          <img src={profile.photo} alt={`${profile.name}, ${profile.role}, portrait`} width={704} height={900} />
         </div>
         <div className={s.story}>
-          <h1>Hi, I&apos;m {profile.shortName}.</h1>
+          <h1>Hi, I&apos;m {profile.name}.</h1>
+          <p className={s.aka}>Most people call me {profile.shortName}.</p>
           <div className={`prose ${s.text}`}>
             <p>
               I&apos;m a software engineer from <strong>Kolkata, India</strong>. I started writing code in 2021 as a
