@@ -1,4 +1,4 @@
-export type ProjectCategory = "Professional work" | "Developer tools";
+export type ProjectCategory = "Professional work" | "Backend systems" | "Developer tools";
 
 export interface Media {
   type: "image" | "video";
@@ -119,13 +119,49 @@ export const projects: Project[] = [
     gallery: [{ type: "image", url: "/projects/buzzli-hero.jpg", caption: "buzzli.io public homepage" }],
   },
   {
+    slug: "bittrail",
+    title: "BitTrail URL shortener",
+    tagline: "A production-style URL shortener with async analytics, built to hold 1,000+ requests per second.",
+    category: "Backend systems",
+    year: "2026",
+    role: "Solo build: design, backend, deployment and load testing",
+    featured: true,
+    cover: "/projects/bittrail-ui.jpg",
+    stack: ["FastAPI", "Python", "PostgreSQL", "Redis", "Redis Streams", "SQLAlchemy", "Alembic", "JWT", "Docker", "Railway"],
+    problem:
+      "A URL shortener looks simple until it has to serve thousands of redirects a second while still counting every click. Writing analytics on the redirect path slows every request down, and one slow database call blocks the user.",
+    approach: [
+      "**Layered architecture** (API → service → repository → database) with dependency injection, typed schemas and structured logging.",
+      "**Cache-aside redirects:** Redis holds short-code lookups, with PostgreSQL as the fallback, so most redirects never touch the database.",
+      "**Async analytics off the hot path:** every click goes onto a **Redis Streams** queue, and a separate worker batches up to 1,000 events into a single database write.",
+      "**JWT auth with refresh-token rotation** and revocation (logout and logout-all), plus a dashboard of each user's links.",
+      "**Token-bucket rate limiting**, deterministic Base62 short codes with collision retry, and Alembic migrations with indexes tuned for the hot queries.",
+      "**Docker-first delivery:** multi-stage image, health checks and Docker Compose for local work, deployed on **Railway** with the analytics worker as its own service.",
+    ],
+    outcome: [
+      "**~1,425 requests per second** on average across **50,000 requests at 1,000 concurrent connections**, with a peak of about 1,510.",
+      "Redirects keep working even when analytics fails, because the two paths are fully separated.",
+      "Documented trade-offs (Redis Streams vs Celery, cache-aside vs write-through) and known limitations, with load-test scripts to reproduce the numbers.",
+    ],
+    learnings: [
+      "Most of the speed came from what stayed off the request path, not from faster code.",
+      "Measuring with load tests before and after each change beats guessing where the bottleneck is.",
+      "Writing down trade-offs and limitations makes a design easier to review and to extend.",
+    ],
+    links: { repo: "https://github.com/Kanai2003/path-to-sde2/tree/main/projects/url_shortener" },
+    gallery: [
+      { type: "image", url: "/projects/bittrail-ui.jpg", caption: "Web app: create a short link and track it from your dashboard" },
+      { type: "image", url: "/projects/bittrail-hld.jpg", caption: "High-level design: redirect, shortening and analytics services" },
+      { type: "image", url: "/projects/bittrail-load-test.jpg", caption: "Load test: 50,000 requests at 1,000 concurrency" },
+    ],
+  },
+  {
     slug: "lynx-api",
     title: "Lynx API",
     tagline: "A local-first API client that lets you chain requests into visual workflows.",
     category: "Developer tools",
     year: "2025",
     role: "Frontend engineer, collaborative build",
-    featured: true,
     cover: "/projects/lynxapi-landing.png",
     stack: ["Rust", "Next.js", "TypeScript", "React Flow", "Tailwind CSS", "shadcn/ui"],
     problem:

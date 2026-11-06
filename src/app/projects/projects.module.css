@@ -195,7 +195,7 @@
 /* Side projects */
 .sideGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
   gap: 20px;
 }
 .side {
@@ -269,9 +269,6 @@
   }
 }
 @media (max-width: 960px) {
-  .sideGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 @media (max-width: 760px) {
   /* Card first on phones, so the company and dates lead */
