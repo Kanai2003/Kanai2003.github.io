@@ -57,6 +57,20 @@ jobs:
         with:
           node-version: "22"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
+      # GitHub Pages must publish from this workflow, not "Deploy from a branch".
+      # Otherwise GitHub also runs a Jekyll build of the repo on every push, and
+      # whichever finishes last wins, sometimes replacing the site with README.md.
+      - name: Make Pages publish from GitHub Actions
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          current=$(gh api repos/${{ github.repository }}/pages --jq .build_type || echo unknown)
+          echo "Pages build_type: $current"
+          if [ "$current" != "workflow" ]; then
+            gh api -X PUT repos/${{ github.repository }}/pages -f build_type=workflow
+            echo "Switched Pages to GitHub Actions"
+          fi
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
