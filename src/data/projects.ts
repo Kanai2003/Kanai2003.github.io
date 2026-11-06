@@ -163,7 +163,7 @@ export const projects: Project[] = [
     year: "2025",
     role: "Frontend engineer, collaborative build",
     cover: "/projects/lynxapi-landing.png",
-    stack: ["Rust", "Next.js", "TypeScript", "React Flow", "Tailwind CSS", "shadcn/ui"],
+    stack: ["Next.js", "TypeScript", "React Flow", "Tailwind CSS", "shadcn/ui", "Rust (backend)"],
     problem:
       "Tools like Postman treat requests one at a time. When an endpoint depends on the output of three others, developers end up copying tokens and IDs by hand.",
     approach: [

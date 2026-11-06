@@ -132,7 +132,6 @@ export const skillGroups: SkillGroup[] = [
       { name: "Java", depth: "built" },
       { name: "JavaScript", depth: "shipped" },
       { name: "SQL", depth: "shipped" },
-      { name: "Rust", depth: "built", evidence: ["lynx-api"] },
       { name: "C", depth: "built" },
       { name: "Data structures & algorithms", depth: "built" },
       { name: "Object-oriented design", depth: "shipped" },
