@@ -21,6 +21,11 @@
   display: grid;
   gap: 28px;
 }
+.aka {
+  margin-top: -16px;
+  color: var(--muted);
+  font-size: var(--t-md);
+}
 .story h1 {
   font-size: var(--t-2xl);
 }

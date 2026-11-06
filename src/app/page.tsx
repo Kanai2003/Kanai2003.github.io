@@ -73,7 +73,11 @@ export default function Home() {
       <section className={`wrap ${s.hero}`}>
         <div className={s.heroText}>
           <p className="status">{profile.availability.note}</p>
-          <h1 className={s.h1}>{profile.headline}</h1>
+          {/* The H1 is the name: it's what people search for. The big headline stays visually dominant. */}
+          <h1 className={s.nameTitle}>
+            {profile.name} <span>· {profile.role}</span>
+          </h1>
+          <p className={s.h1}>{profile.headline}</p>
           <p className={s.heroLede}>{profile.summary}</p>
           <div className="btn-row">
             <Link href="/projects" className="btn btn-ink">
@@ -87,7 +91,7 @@ export default function Home() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={profile.photo}
-              alt={`Portrait of ${profile.name}`}
+              alt={`${profile.name}, ${profile.role}`}
               width={56}
               height={56}
             />

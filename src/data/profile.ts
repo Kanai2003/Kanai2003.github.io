@@ -5,6 +5,10 @@
 export const profile = {
   name: "Kanailal Manna",
   shortName: "Kanai",
+  givenName: "Kanailal",
+  familyName: "Manna",
+  /** Other ways people search for you. Used in structured data so search engines connect them. */
+  alternateNames: ["Kanai", "Kanai Manna", "Kanai2003", "কানাইলাল মান্না"],
   role: "AI Full-Stack Engineer",
   currentTitle: "Software Development Engineer I",
   currentCompany: "Ploutos AI (Datachecks)",
@@ -16,12 +20,12 @@ export const profile = {
   githubUser: "Kanai2003",
   /** npm account; packages and downloads on /open-source are fetched for this user. */
   npmUser: "kanai2003",
-  resume: "/Kanai_Resume.pdf",
+  resume: "/kanailal-manna-resume.pdf",
   /** Name the file gets when someone downloads it. */
   resumeFileName: "Kanailal-Manna-Resume.pdf",
   /** Optional: a Calendly / Cal.com link. When set, "Book a call" buttons appear on the hire page. */
   bookingUrl: "",
-  photo: "/mypic.jpeg",
+  photo: "/kanailal-manna.jpg",
 
   /** One line. Shown in the hero, meta description and social cards. */
   headline:
@@ -53,6 +57,7 @@ export const profile = {
     leetcode: "https://leetcode.com/kanai2003/",
     x: "https://x.com/KManna16",
     npm: "https://www.npmjs.com/~kanai2003",
+    youtube: "https://www.youtube.com/@the.village.dev.official",
   },
 
   spokenLanguages: ["English (fluent)", "Bengali (native)", "Hindi (proficient)"],

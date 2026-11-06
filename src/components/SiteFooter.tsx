@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import { SiLeetcode, SiNpm } from "react-icons/si";
 import { profile } from "@/data/profile";
 import { nav } from "@/data/nav";
@@ -12,6 +12,7 @@ const socials = [
   { href: profile.links.x, label: "X", Icon: FaXTwitter },
   { href: profile.links.leetcode, label: "LeetCode", Icon: SiLeetcode },
   { href: profile.links.npm, label: "npm", Icon: SiNpm },
+  { href: profile.links.youtube, label: "YouTube", Icon: FaYoutube },
 ];
 
 export default function SiteFooter() {
@@ -53,7 +54,7 @@ export default function SiteFooter() {
               <a
                 href={href}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="me noopener noreferrer"
                 aria-label={label}
               >
                 <Icon />
