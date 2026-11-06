@@ -38,7 +38,13 @@ All content lives in `src/data/`. You should rarely need to touch a component.
 
 ### Résumé
 
-Replace `public/kanailal-manna-resume.pdf`. Every download button points to it (path set in `profile.ts`). `Kanai_Resume.pdf` is kept only so old links keep working.
+The résumé is built from `resume/resume.html`, a one-column, ATS-friendly layout with real text, standard headings and dates inline with each role.
+
+```bash
+npm run resume   # writes public/kanailal-manna-resume.pdf (needs Google Chrome or Chromium)
+```
+
+Every download button on the site points to that PDF and saves it as `Kanailal-Manna-Resume.pdf`. The script also refreshes `public/Kanai_Resume.pdf` so older shared links get the new version.
 
 ### Social preview image
 

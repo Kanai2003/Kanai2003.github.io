@@ -1,0 +1,184 @@
+<!doctype html>
+<!--
+  Source for the downloadable résumé (public/kanailal-manna-resume.pdf).
+  Edit this file, then run:  npm run resume
+  ATS rules followed here: one column, real text (no images or icons), standard
+  section headings, no tables, contact details in plain text, consistent dates.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Kanailal Manna - Resume</title>
+    <meta name="author" content="Kanailal Manna" />
+    <meta name="description" content="Resume of Kanailal Manna, AI Full-Stack Engineer" />
+    <meta name="keywords" content="AI Engineer, Full-Stack Engineer, Python, FastAPI, Next.js, LangChain, LangGraph, AI Agents" />
+    <style>
+      @page {
+        size: A4;
+        margin: 9.5mm 12mm 9mm;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      body {
+        margin: 0;
+        font-family: Carlito, Calibri, "Liberation Sans", Arial, sans-serif;
+        font-size: 10.5pt;
+        line-height: 1.26;
+        font-variant-ligatures: none;
+        color: #111;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      strong {
+        font-weight: 700;
+      }
+
+      /* Header */
+      .name {
+        margin: 0;
+        font-size: 21pt;
+        line-height: 1.05;
+        letter-spacing: 0.3pt;
+      }
+      .headline {
+        margin: 2pt 0 3pt;
+        font-size: 11pt;
+        font-weight: 700;
+        color: #1f3a8a;
+      }
+      .contact {
+        margin: 0;
+        font-size: 9.3pt;
+      }
+
+      /* Sections */
+      h2 {
+        margin: 6.5pt 0 2.5pt;
+        padding-bottom: 1.5pt;
+        border-bottom: 0.8pt solid #1f3a8a;
+        font-size: 10.8pt;
+        letter-spacing: 0.6pt;
+        color: #1f3a8a;
+        text-transform: uppercase;
+      }
+      p {
+        margin: 0;
+      }
+      ul {
+        margin: 1.5pt 0 0;
+        padding-left: 11pt;
+        list-style: none;
+      }
+      li {
+        margin: 0 0 1.3pt;
+        text-indent: -8pt;
+      }
+      li::before {
+        content: "•\00a0\00a0";
+      }
+
+      /* Role and project lines: everything in reading order, left-aligned */
+      h3.role {
+        margin: 4.5pt 0 0;
+        font-size: 10.6pt;
+      }
+      .meta {
+        font-style: italic;
+        color: #222;
+      }
+      .meta strong {
+        font-style: normal;
+      }
+      .skills p {
+        margin-bottom: 1.4pt;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="name">Kanailal Manna</h1>
+      <p class="headline">AI Full-Stack Engineer | Python, FastAPI, Next.js, LangChain, LangGraph</p>
+      <p class="contact">
+        India | +91 8167539323 | kanailalmanna2003@gmail.com |
+        linkedin.com/in/kanailalmanna | github.com/Kanai2003 | kanai2003.github.io
+      </p>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p>
+        <strong>AI Full-Stack Engineer with 2+ years of production experience</strong> at AI startups, building
+        <strong>AI agents (LangChain, LangGraph)</strong>, <strong>Python/FastAPI and Node.js backends</strong>,
+        <strong>Next.js frontends</strong> and <strong>CI/CD pipelines</strong>. Shipped agent guardrails, memory and token
+        tracking to production; <strong>promoted at both companies</strong> within a year of joining.
+      </p>
+    </section>
+
+    <section class="skills">
+      <h2>Technical Skills</h2>
+      <p><strong>AI and LLM:</strong> AI Agents, LangChain, LangGraph, Prompt Engineering, Agent Guardrails, Agent Memory, Token Usage Tracking, OpenAI API, Google Gemini</p>
+      <p><strong>Languages:</strong> Python, TypeScript, JavaScript, SQL, Java, C, Rust</p>
+      <p><strong>Backend and Data:</strong> FastAPI, Node.js, Express.js, REST APIs, PostgreSQL, Redis, Redis Streams, MongoDB, Azure CosmosDB, SQLAlchemy, Alembic, JWT Authentication, System Design</p>
+      <p><strong>Frontend:</strong> Next.js, React, Tailwind CSS, Redux, Zustand, MUI, React Flow, SEO and Core Web Vitals</p>
+      <p><strong>DevOps and Cloud:</strong> Docker, Docker Compose, GitHub Actions, CI/CD, Railway, Microsoft Azure, AWS, GCP, Linux, Bash, Git</p>
+      <p><strong>Currently learning:</strong> RAG Pipelines, LLM Evaluation, Microservices, Kubernetes</p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <h3 class="role">Software Development Engineer I | Ploutos AI Technologies (Datachecks)</h3>
+      <p class="meta"><strong>Apr 2025 – Present</strong> | Remote, Bengaluru | AI data migration platform; promoted from SDE Intern to SDE I in Oct 2025</p>
+      <ul>
+        <li><strong>Shipped AI agent features end to end</strong> with LangChain, LangGraph and FastAPI, including <strong>Custom Guardrails</strong> (rules on agent actions and replies) and <strong>Memory</strong> (context across conversations).</li>
+        <li><strong>Cut release time from about 1 hour to 3 minutes</strong> by building a <strong>CI/CD pipeline</strong> with GitHub Actions and Docker.</li>
+        <li><strong>Implemented per-agent, per-session token usage tracking</strong>, making the cost of every agent run visible.</li>
+        <li><strong>Developed an AI agent that generates data migration reports</strong> to guide teams through migrations.</li>
+        <li><strong>Migrated deployment infrastructure from Azure to Railway</strong> and automated deploys on every merge through CI.</li>
+        <li><strong>Engineered backend and frontend product features</strong> across Next.js and FastAPI, from API design to shipped UI.</li>
+        <li><strong>Delivered 280+ commits across 4 repositories</strong> spanning frontend, backend, open-source packages and CI/CD.</li>
+      </ul>
+
+      <h3 class="role">Software Development Engineer Intern | Buzzli</h3>
+      <p class="meta"><strong>Mar 2024 – Mar 2025</strong> | Remote, Delhi | LinkedIn AI copilot; promoted from Frontend Engineer to SDE in Feb 2025</p>
+      <ul>
+        <li><strong>Built the full-stack SaaS platform</strong> with Next.js, Node.js, Express.js and Azure CosmosDB.</li>
+        <li><strong>Shipped an AI agent that turns news articles into ready-to-post LinkedIn drafts</strong> for users.</li>
+        <li><strong>Wrote a Python scraper that collected 25,000+ records</strong> to feed the content ingestion pipeline.</li>
+        <li><strong>Raised the Lighthouse SEO score from 68 to 92</strong> by rebuilding the UI for mobile and desktop.</li>
+        <li><strong>Authored and merged 150+ pull requests</strong>, reviewed code and mentored new interns.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+
+      <h3 class="role">BitTrail URL Shortener | FastAPI, PostgreSQL, Redis Streams, Docker | 2026</h3>
+      <ul>
+        <li><strong>Sustained about 1,425 requests per second at 1,000 concurrent connections</strong> in a 50,000-request load test.</li>
+        <li><strong>Kept redirects fast</strong> with Redis cache-aside lookups and analytics moved to Redis Streams with a batch worker.</li>
+        <li><strong>Implemented JWT auth with refresh-token rotation</strong> and rate limiting; deployed on Railway with Docker.</li>
+      </ul>
+
+      <h3 class="role">Open Source and Other Projects | 2021 – Present</h3>
+      <ul>
+        <li><strong>Lynx API:</strong> built the Next.js and React Flow interface for a Rust-based API client that chains requests into visual workflows.</li>
+        <li><strong>Codebase Tracker and unicode-transformer:</strong> published npm packages, including a CLI that maps code usage.</li>
+        <li><strong>17 pull requests merged into open-source projects</strong>, including neutralino.js build fixes and Hacktoberfest.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Education and Certifications</h2>
+      <h3 class="role">B.Tech in Computer Science and Engineering | Techno International New Town | 2021 – 2025</h3>
+      <p>CGPA 8.45/10. NTSE National Scholarship and SVMCM State Merit Scholarship. Certifications: Build Real World AI Applications with Gemini and Imagen (Google Cloud); AWS Academy Graduate: Cloud Foundations (Amazon Web Services).</p>
+    </section>
+  </body>
+</html>
