@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import { profile } from "@/data/profile";
+import { education, profile } from "@/data/profile";
+import { absoluteUrl, jsonLd, personId, siteTitle, websiteId } from "@/lib/seo";
 // Fonts are bundled from npm (Fontsource) instead of next/font/google, so the
 // build never depends on downloading from Google Fonts (that download was
 // failing intermittently in CI and breaking deploys).
@@ -12,37 +13,40 @@ import "@fontsource/ibm-plex-sans/600.css";
 import "@fontsource-variable/jetbrains-mono";
 import "./globals.css";
 
-
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
   title: {
-    default: `${profile.name} · ${profile.role}`,
+    default: siteTitle,
     template: `%s · ${profile.name}`,
   },
-  description: profile.headline,
-  keywords: [
-    ...profile.availability.roles,
-    "AI engineer",
-    "full stack developer",
-    "contract AI developer",
-    "remote software engineer India",
-    "LangGraph",
-    "LangChain",
-    "Next.js developer",
-    "FastAPI",
-    "freelance AI developer India",
-    profile.name,
-  ],
+  description: profile.seoDescription,
+  applicationName: profile.name,
   authors: [{ name: profile.name, url: profile.siteUrl }],
-  openGraph: {
-    type: "website",
-    url: profile.siteUrl,
-    siteName: profile.name,
-    title: `${profile.name} · ${profile.role}`,
-    description: profile.headline,
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: `${profile.name}, ${profile.role}` }],
+  creator: profile.name,
+  category: "technology",
+  keywords: [
+    profile.name,
+    ...profile.availability.roles,
+    "AI engineer India",
+    "AI agent developer",
+    "LangGraph developer",
+    "LangChain developer",
+    "FastAPI developer",
+    "Next.js developer",
+    "freelance AI developer",
+    "remote software engineer India",
+  ],
+  formatDetection: { email: false, telephone: false, address: false },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
-  twitter: { card: "summary_large_image", creator: "@KManna16", images: ["/og.png"] },
+  // Paste the Google Search Console / Bing tokens into profile.ts to verify ownership.
+  verification: {
+    ...(profile.seo.googleVerification ? { google: profile.seo.googleVerification } : {}),
+    ...(profile.seo.bingVerification ? { other: { "msvalidate.01": profile.seo.bingVerification } } : {}),
+  },
 };
 
 export const viewport: Viewport = {
@@ -55,19 +59,53 @@ export const viewport: Viewport = {
 // Applies a saved theme before first paint so there is no flash.
 const themeScript = `try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}`;
 
-const personLd = {
+/** Site-wide structured data: who this site is about, and the site itself. */
+const siteLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: profile.name,
-  jobTitle: profile.role,
-  url: profile.siteUrl,
-  image: `${profile.siteUrl}${profile.photo}`,
-  email: `mailto:${profile.email}`,
-  address: { "@type": "PostalAddress", addressCountry: "IN" },
-  worksFor: { "@type": "Organization", name: profile.currentCompany, url: profile.currentCompanyUrl },
-  alumniOf: "Techno International New Town",
-  sameAs: Object.values(profile.links),
-  knowsAbout: ["AI agents", "LangGraph", "LangChain", "Next.js", "FastAPI", "Python", "TypeScript", "Docker"],
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": personId,
+      name: profile.name,
+      alternateName: profile.shortName,
+      jobTitle: profile.role,
+      description: profile.seoDescription,
+      url: profile.siteUrl,
+      image: absoluteUrl(profile.photo),
+      email: `mailto:${profile.email}`,
+      nationality: { "@type": "Country", name: "India" },
+      address: { "@type": "PostalAddress", addressCountry: "IN" },
+      worksFor: { "@type": "Organization", name: profile.currentCompany, url: profile.currentCompanyUrl },
+      alumniOf: { "@type": "CollegeOrUniversity", name: education.school },
+      sameAs: Object.values(profile.links),
+      knowsAbout: [
+        "AI agents",
+        "LangGraph",
+        "LangChain",
+        "Large language models",
+        "Next.js",
+        "React",
+        "FastAPI",
+        "Python",
+        "TypeScript",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "CI/CD",
+        "System design",
+      ],
+      knowsLanguage: ["English", "Bengali", "Hindi"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      url: profile.siteUrl,
+      name: profile.name,
+      description: profile.seoDescription,
+      inLanguage: "en",
+      publisher: { "@id": personId },
+    },
+  ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -75,7 +113,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(siteLd)} />
       </head>
       <body>
         <a className="skip" href="#main">

@@ -3,7 +3,8 @@ import Rich from "@/components/Rich";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FiArrowLeft, FiExternalLink, FiGithub, FiPackage, FiPlayCircle } from "react-icons/fi";
-import { getProject, projects } from "@/data/projects";
+import { getProject, projects, type Project } from "@/data/projects";
+import { absoluteUrl, breadcrumbs, jsonLd, pageMetadata, personId } from "@/lib/seo";
 import s from "./case.module.css";
 
 export const dynamicParams = false;
@@ -15,11 +16,49 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const p = getProject((await params).slug);
   if (!p) return {};
-  return {
+  return pageMetadata({
     title: p.title,
-    description: p.tagline,
-    openGraph: { title: p.title, description: p.tagline, images: p.cover ? [p.cover] : undefined },
-  };
+    description: caseDescription(p),
+    path: `/projects/${p.slug}`,
+    image: p.cover,
+    imageAlt: `${p.title} screenshot`,
+    type: "article",
+  });
+}
+
+/** Tagline plus role and core stack, trimmed to a search-friendly length. */
+function caseDescription(p: Project) {
+  const d = `${p.tagline} ${p.role}. Built with ${p.stack.slice(0, 4).join(", ")}.`;
+  return d.length > 160 ? d.slice(0, 157).replace(/[ ,.]+\S*$/, "") + "…" : d;
+}
+
+/** Structured data: breadcrumb trail plus the project itself, credited to the site owner. */
+function caseLd(p: Project) {
+  const url = absoluteUrl(`/projects/${p.slug}`);
+  const isCode = Boolean(p.links.repo || p.links.package);
+  return [
+    breadcrumbs([
+      { name: "Work", path: "/projects" },
+      { name: p.title, path: `/projects/${p.slug}` },
+    ]),
+    {
+      "@context": "https://schema.org",
+      "@type": isCode ? "SoftwareSourceCode" : "CreativeWork",
+      "@id": `${url}#project`,
+      name: p.title,
+      headline: p.title,
+      description: p.tagline,
+      url,
+      image: p.cover ? absoluteUrl(p.cover) : undefined,
+      dateCreated: p.year.match(/\d{4}/)?.[0],
+      keywords: p.stack.join(", "),
+      creator: { "@id": personId },
+      author: { "@id": personId },
+      ...(p.links.repo ? { codeRepository: p.links.repo } : {}),
+      ...(isCode ? { programmingLanguage: p.stack.filter((t) => /^(Python|TypeScript|JavaScript|Rust|Node\.js)$/.test(t)) } : {}),
+      ...(p.links.live ? { sameAs: p.links.live } : {}),
+    },
+  ];
 }
 
 function youTubeId(url: string) {
@@ -48,6 +87,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
 
   return (
     <article>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(caseLd(p))} />
       <header className="page-head">
         <div className="wrap">
           <Link href="/projects" className={s.back}>

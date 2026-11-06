@@ -26,6 +26,11 @@ export const profile = {
   /** One line. Shown in the hero, meta description and social cards. */
   headline:
     "I build AI products end to end: the agent, the API behind it and the interface people use.",
+  /** Search-result description for the home page (aim for 140–160 characters). */
+  seoDescription:
+    "Kanailal Manna is an AI full-stack engineer in India building AI agents with LangGraph, FastAPI and Next.js. Open to AI engineer roles and freelance projects.",
+  /** Search engine verification tokens. Leave empty until you set up Search Console / Bing Webmaster. */
+  seo: { googleVerification: "", bingVerification: "" },
   summary:
     "Software engineer with two years of shipping production software at AI startups. I work across Next.js frontends, Python/FastAPI and Node backends, CI/CD, and LLM features built with LangChain and LangGraph. Today I build AI agents for data migration at Datachecks (Ploutos AI).",
 
